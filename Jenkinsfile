@@ -7,7 +7,6 @@ pipeline {
         stage('build') {
           steps {
            echo "Hello world"
-           sh 'docker build'
           }
         }
         stage('maven clean') {
