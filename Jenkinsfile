@@ -7,9 +7,6 @@ pipeline {
         stage('build') {
           steps {
            echo "Hello world"
-           sh ' yum install docker -y'
-           sh  'service docker start'
-           sh  'chkconfig docker on'
            sh 'docker build'
           }
         }
@@ -25,5 +22,15 @@ pipeline {
         }
     
     }
+    post {
+        always {
+            echo "always post this"
+         }
+        failure {
+            echo "this job failed"
+        }
+    
+    }
+    
 }
 
