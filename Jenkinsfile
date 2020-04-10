@@ -12,7 +12,7 @@ pipeline {
         }
         stage('maven clean') {
           steps {
-           sh 'mvn clean'
+          deploy adapters: [tomcat8(credentialsId: 'TomcatID', path: '', url: 'http://34.201.107.82:8080/')], contextPath: null, war: '**/*war'
           }
         }
         stage('Maven install') {
